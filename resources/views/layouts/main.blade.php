@@ -21,7 +21,7 @@
           <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/about">About</a>
+          <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/students">Students</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="/contact">Contact</a>
@@ -32,7 +32,7 @@
 </nav>
 
 
-@yield('content')
+    @yield('content')
    
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
