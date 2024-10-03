@@ -21,10 +21,10 @@
           <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="/students">Students</a>
+          <a class="nav-link {{ Request::is('students') ? 'active' : '' }}" href="/students">Students</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="/contact">Contact</a>
+          <a class="nav-link {{ Request::is('class') ? 'active' : '' }}" href="/class">Class</a>
         </li>
       </ul>
     </div>

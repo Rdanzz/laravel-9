@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('classrooms', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->required();
+            $table->string('name')->unique()->required();
             $table->timestamps();
         });
     }
