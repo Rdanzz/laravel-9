@@ -31,10 +31,10 @@
                     <td colspan="5" class="text-center">Belum ada data Pelajar</td>
                 </tr>
             @endforelse 
-    </tbody>
-</table>
-
-         </div>
-    </div>
+        </tbody>
+    </table>
+    
+</div>
+</div>
 </div>
 @endsection
