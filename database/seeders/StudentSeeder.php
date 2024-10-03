@@ -21,24 +21,27 @@ class StudentSeeder extends Seeder
         Student::truncate();
         Schema::enableForeignKeyConstraints();
 
-        Student::insert([
-            [
-                'name' => 'John Doe',
-                'classroom_id' => 1,
-                'nis' => '010101',
-                'gender' => 'L',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
-            [
-                'name' => 'Jane Smith',
-                'classroom_id' => 2,
-                'nis' => '020202',
-                'gender' =>'L',
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ],
+        // Student::insert([
+        //     [
+        //         'name' => 'John Doe',
+        //         'classroom_id' => 1,
+        //         'nis' => '010101',
+        //         'gender' => 'L',
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now()
+        //     ],
+        //     [
+        //         'name' => 'Jane Smith',
+        //         'classroom_id' => 2,
+        //         'nis' => '020202',
+        //         'gender' =>'L',
+        //         'created_at' => Carbon::now(),
+        //         'updated_at' => Carbon::now()
+        //     ],
 
-        ]);
+        // ]);
+        Student::factory()
+        ->count(25)
+        ->create();
     }
 }
