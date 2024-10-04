@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'About')
+@section('title', 'Student')
 
 
 @section('content')
@@ -14,6 +14,7 @@
             <th scope="col">Kelas</th>
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">NIS</th>
+            <th scope="col">Ekstrakurikuler</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,13 @@
                 <td>{{ $student->classroom->name }}</td>
                 <td>{{ $student->gender }}</td>
                 <td>{{ $student->nis }}</td>
+                 <td>
+                     @forelse ($student->extracurriculars as $extracurricular)
+                        {{ $extracurricular->name }}
+                        @empty
+                        Tidak mengikuti Ekstrakurikuler
+                        @endforelse
+        </td>
             </tr>
             @empty
                 <tr>

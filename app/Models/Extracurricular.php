@@ -4,17 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Classroom extends Model
+class Extracurricular extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-
     public function students()
     {
-        return $this->hasMany(Student::class);
+        return $this->belongsToMany(Student::class, 'student_extracurriculars',  'extracurricular_id','student_id',);
     }
-
 }
