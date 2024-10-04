@@ -9,7 +9,7 @@ class ClassroomController extends Controller
 {
     public function index()
     {
-        $class = Classroom::all();
+        $class = Classroom::with('students')->get();
         // dd($student);
         return view('classroom.classroom', ['classList' => $class]);
     }

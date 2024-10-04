@@ -11,15 +11,25 @@
         <tr class="text-center">
             <th style="width: 50px " scope="col">No</th>
             <th scope="col">Kelas</th>
+            <th scope="col">Pelajar</th>
         </tr>
     </thead>
     <tbody>
         @forelse ($classList as $class)
             
-        <tr class="text-center">
-                <tr class="text-center">
+        <tr>
+                <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $class->name }}</td>
+                <td>
+                    <ol>
+                     @forelse ($class->students as $student)
+                        <li>{{ $student->name }}</li>
+                        @empty
+                        Tidak ada siswa
+                        @endforelse
+                    </ol>
+                </td>
             </tr>
             @empty
                 <tr>
