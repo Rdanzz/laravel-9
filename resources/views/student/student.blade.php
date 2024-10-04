@@ -15,6 +15,7 @@
             <th scope="col">Jenis Kelamin</th>
             <th scope="col">NIS</th>
             <th scope="col">Ekstrakurikuler</th>
+            <th scope="col">Wali Kelas</th>
         </tr>
     </thead>
     <tbody>
@@ -33,6 +34,7 @@
                         Tidak mengikuti Ekstrakurikuler
                         @endforelse
         </td>
+                <td>{{ $student->classroom->teacher->name }}</td>
             </tr>
             @empty
                 <tr>

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClassroomController;
 use App\Http\Controllers\ExtracurricularController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +42,7 @@ Route::get('/class', [ClassroomController::class, 'index']);
 
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);
 
+Route::get('/teacher', [TeacherController::class, 'index']);
 
 
 

@@ -11,7 +11,7 @@ class StudentController extends Controller
     public function index ()
     {
         // Eiger load lebih baik dari Lazy load 
-        $studentList = Student::with(['classroom', 'extracurriculars'])->get();
+        $studentList = Student::with(['classroom.teacher', 'extracurriculars'])->get();
         return view('student.student', compact('studentList'));
 
 
