@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Classroom;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +13,8 @@ class StudentController extends Controller
     {
         // Eiger load lebih baik dari Lazy load 
         $studentList = Student::get();
-        return view('student.student', compact('studentList'));
+        $classrooms = Classroom::all();
+        return view('student.student', compact('studentList', 'classrooms'));
     }
 
     public function show($id)
@@ -21,6 +23,29 @@ class StudentController extends Controller
         $student = Student::with(['classroom.teacher', 'extracurriculars'])->findOrFail($id);
         return view('student.detail', compact('student')); 
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'classroom_id' => 'required|exists:classrooms,id',
+            'gender' => 'required|in:L,P',
+            'nis' => 'required|string|max:10|unique:students',
+        ]);
+
+        // dd($request->all());
+
+        Student::create([
+            'name' => $request->name,
+            'classroom_id' => $request->classroom_id, 
+            'gender' => $request->gender,
+            'nis' => $request->nis,
+        ]);
+
+        return redirect()->route('students')->with('success', 'Data pelajar berhasil ditambahkan.');
+    }
+
+
 
 
 

@@ -13,4 +13,16 @@ class ExtracurricularController extends Controller
 
         return view('extracurricular.extracurricular', compact('eskulList'));
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required','string','max:255','unique:extracurriculars'],
+        ]);
+
+        // dd($request->all());
+        Extracurricular::create($request->all());
+
+        return redirect()->route('extracurricular')->with('success', 'Data Eskul berhasil ditambahkan');
+    }
 }
