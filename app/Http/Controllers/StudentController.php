@@ -11,8 +11,16 @@ class StudentController extends Controller
     public function index ()
     {
         // Eiger load lebih baik dari Lazy load 
-        $studentList = Student::with(['classroom.teacher', 'extracurriculars'])->get();
+        $studentList = Student::get();
         return view('student.student', compact('studentList'));
+    }
+
+    public function show($id)
+    {
+        // Ambil data siswa berdasarkan ID
+        $student = Student::with(['classroom.teacher', 'extracurriculars'])->findOrFail($id);
+        return view('student.detail', compact('student')); 
+    }
 
 
 
@@ -201,5 +209,4 @@ class StudentController extends Controller
         // $student = Student::find(1);
         // $student->delete();
         // dd($student);
-    }
 }

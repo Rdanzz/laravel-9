@@ -34,11 +34,12 @@ Route::get('/', function () {
     ]);
 });
 
-Route::view('/about', 'about');
-Route::view('/contact', 'contact');
 
-Route::get('/students', [StudentController::class, 'index']);
-Route::get('/class', [ClassroomController::class, 'index']);
+Route::get('/students', [StudentController::class, 'index'])->name('students');
+Route::get('/student-detail/{id}', [StudentController::class, 'show'])->name('student-detail');
+
+Route::get('/class', [ClassroomController::class, 'index'])->name('class');
+Route::get('/class-detail/{id}', [ClassroomController::class, 'show'])->name('class-detail');
 
 Route::get('/extracurricular', [ExtracurricularController::class, 'index']);
 

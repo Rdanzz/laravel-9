@@ -15,4 +15,11 @@ class ClassroomController extends Controller
         // dd($student);
         return view('classroom.classroom', ['classList' => $class]);
     }
+
+    public function show($id)
+    {
+        // Ambil data siswa berdasarkan ID
+        $class = Classroom::with(['students'])->findOrFail($id);
+        return view('classroom.detail', compact('class'));
+    }
 }
