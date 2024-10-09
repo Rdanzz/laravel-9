@@ -6,6 +6,16 @@
 <div class="container mt-5">
 <div class="mt-5">
              <h2 class="text-center">Data Ekstrakurikuler</h2>
+        @if (session('success'))
+             <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+@endif
              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addDataModal" style="margin-left: 150px; margin-bottom:-50px">
             Tambah Data
         </button>

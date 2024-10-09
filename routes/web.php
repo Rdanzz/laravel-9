@@ -49,6 +49,8 @@ Route::post('/extracurricular/store', [ExtracurricularController::class, 'store'
 
 Route::get('/teacher', [TeacherController::class, 'index'])->name('teacher');
 Route::post('/teacher/store', [TeacherController::class, 'store'])->name('teacher.store');
+Route::get('/teacher/edit/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
+Route::post('/teacher/update/{id}', [TeacherController::class, 'update'])->name('teacher.update');
 
 
 

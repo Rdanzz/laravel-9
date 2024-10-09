@@ -9,10 +9,17 @@ use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
-    public function index ()
+    public function index (Request $request)
     {
         // Eiger load lebih baik dari Lazy load 
-        $studentList = Student::get();
+        $keyword = $request->keyword;
+        $studentList = Student::with('classroom')->where('name', 'LIKE', '%'.$keyword.'%')
+        ->orWhere('gender', 'LIKE', '%'.$keyword.'%')
+        ->orWhere('nis', 'LIKE', '%'.$keyword.'%')
+        ->orWhereHas('classroom', function($query) use ($keyword) {
+            $query->where('name', 'LIKE', '%'.$keyword.'%');
+        })
+        ->paginate(15);
         $classrooms = Classroom::all();
         return view('student.student', compact('studentList', 'classrooms'));
     }

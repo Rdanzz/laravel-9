@@ -17,9 +17,9 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        Schema::disableForeignKeyConstraints();
-        Student::truncate();
-        Schema::enableForeignKeyConstraints();
+        // Schema::disableForeignKeyConstraints();
+        // Student::truncate();
+        // Schema::enableForeignKeyConstraints();
 
         // Student::insert([
         //     [
@@ -41,7 +41,7 @@ class StudentSeeder extends Seeder
 
         // ]);
         Student::factory()
-        ->count(25)
+        ->count(500)
         ->create();
     }
 }
